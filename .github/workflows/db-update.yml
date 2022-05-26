@@ -9,8 +9,8 @@ jobs:
       - uses: liquibase/liquibase-github-action@v2
         with:
           operation: 'update'
-          classpath: 'changelogs'
+          classpath: './changelogs'
           changeLogFile: 'changelog.xml'
-          username: ${{ secrets.DB_USERNAME }}
-          password: ${{ secrets.DB_PASSWORD }}
-          url: ${{ secrets.DB_URL }}
+          username: egen
+          password: egen_poc
+          url: jdbc:postgresql://egen-rds.cmpvw21itcfn.us-east-1.rds.amazonaws.com:5432/egen
