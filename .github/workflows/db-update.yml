@@ -9,7 +9,7 @@ jobs:
       - uses: liquibase/liquibase-github-action@v2
         with:
           operation: 'update'
-          classpath: 'changelogs'
+          classpath: './changelogs'
           changeLogFile: 'changelog.xml'
           username: egen
           password: egen_poc
