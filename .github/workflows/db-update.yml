@@ -11,9 +11,9 @@ jobs:
         # `POSTGRES_HOST` is `postgres`
         env:
           POSTGRES_DB: postgres_db
-          POSTGRES_PASSWORD: postgres_password
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
           POSTGRES_PORT: 5432
-          POSTGRES_USER: postgres_user
+          POSTGRES_USER: ${{ secrets.DB_USERNAME }}
         ports:
           - 5432:5432
         options: >-
@@ -28,6 +28,6 @@ jobs:
           operation: 'update'
           classpath: 'changelogs'
           changeLogFile: 'changelog.xml'
-          username: 'postgres_user'
-          password: 'postgres_password'
-          url: 'jdbc:postgresql://postgres:5432/postgres_db'
+          username: ${{ secrets.DB_USERNAME }}
+          password: ${{ secrets.DB_PASSWORD }}
+          url: ${{ secrets.DB_URL }}
