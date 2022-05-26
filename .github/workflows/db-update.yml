@@ -4,6 +4,23 @@ jobs:
   test-liquibase-action:
     runs-on: ubuntu-latest
     name: Test Liquibase Action
+    container: node:latest
+    services:
+      postgres:
+        image: postgres:latest
+        # `POSTGRES_HOST` is `postgres`
+        env:
+          POSTGRES_DB: postgres_db
+          POSTGRES_PASSWORD: postgres_password
+          POSTGRES_PORT: 5432
+          POSTGRES_USER: postgres_user
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - uses: actions/checkout@v2
       - uses: liquibase/liquibase-github-action@v5
@@ -11,6 +28,6 @@ jobs:
           operation: 'update'
           classpath: 'changelogs'
           changeLogFile: 'changelog.xml'
-          username: 'egen'
-          password: 'egen_poc'
-          url: 'jdbc:postgresql://egen-rds.cmpvw21itcfn.us-east-1.rds.amazonaws.com:5432/egen'
+          username: 'postgres_user'
+          password: 'postgres_password'
+          url: 'jdbc:postgresql://postgres:5432/postgres_db'
