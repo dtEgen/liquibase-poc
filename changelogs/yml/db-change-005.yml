@@ -1,0 +1,19 @@
+databaseChangeLog:  
+
+  -  changeSet:  
+      id:  005  
+      author:  Dan  
+      changes:  
+        -  createTable:  
+            tableName:  men  
+            columns:  
+              -  column:  
+                  name:  id  
+                  type:  int  
+                  autoIncrement:  true  
+                  constraints:  
+                    primaryKey:  true  
+                    nullable:  false  
+              -  column:  
+                  name:  name  
+                  type:  varchar(255)

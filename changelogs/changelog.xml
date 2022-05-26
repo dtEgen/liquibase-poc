@@ -10,4 +10,5 @@
 		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.9.xsd">
         <includeAll  path="changelogs/xml/"/>  
         <includeAll  path="changelogs/sql/"/>  
+        <includeAll  path="changelogs/yml/"/>  
 </databaseChangeLog>
