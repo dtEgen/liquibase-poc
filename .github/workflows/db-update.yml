@@ -10,7 +10,7 @@ jobs:
           # for psql
           sudo apt-get install -y postgresql-client
           # Test psql connection
-          PGPASSWORD=egen_poc psql -h egen-rds.cmpvw21itcfn.us-east-1.rds.amazonaws.com -p 5432 -U egen_poc -d egen -c "select 1"
+          PGPASSWORD=egen_poc psql -h egen-rds.cmpvw21itcfn.us-east-1.rds.amazonaws.com -p 5432 -U egen -d egen -c "select 1"
       - uses: actions/checkout@v2
       - uses: liquibase/liquibase-github-action@v5
         with:
